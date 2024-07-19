@@ -2,8 +2,7 @@ import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 
-const ExpenseChart = ({ data }) => {
-  const totalYearlyExpense = data.reduce((total, entry) => total + entry.amount, 0);
+const ExpenseChart = ({ data, totalYearlyExpense }) => {
 
   return (
     <div>

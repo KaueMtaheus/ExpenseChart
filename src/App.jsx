@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
 import ExpenseChart from './components/ExpenseChart';
-import expenseData from './data/expenseData';
+import initialExpenseData from './data/expenseData';
 
 const App = () => {
   const [salary, setSalary] = useState('');
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(initialExpenseData);
   const [month, setMonth] = useState('');
   const [amount, setAmount] = useState('');
 
   const handleAddExpense = () => {
     if (month && amount) {
-      setExpenses([...expenses, { month, amount: parseFloat(amount) }]);
+      setExpenses(expenses.map(exp => 
+        exp.month === month ? { ...exp, amount: parseFloat(amount) } : exp
+      ));
       setMonth('');
       setAmount('');
     }
   };
 
-  const updatedExpenseData = expenseData.map(item => {
-    const expense = expenses.find(exp => exp.month === item.month);
-    return {
-      ...item,
-      amount: expense ? expense.amount : item.amount
-    };
-  });
+  const totalYearlyExpense = expenses.reduce((total, entry) => total + entry.amount, 0);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -38,12 +34,13 @@ const App = () => {
             />
           </div>
           <div>
-            <label>Mês:</label>
-            <input
-              type="text"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-            />
+          <label>Mês:</label>
+            <select value={month} onChange={(e) => setMonth(e.target.value)}>
+              <option value="">Selecione o mês</option>
+              {initialExpenseData.map(exp => (
+                <option key={exp.month} value={exp.month}>{exp.month}</option>
+              ))}
+            </select>
           </div>
           <div>
             <label>Gasto:</label>
@@ -58,7 +55,7 @@ const App = () => {
           </button>
         </form>
       </div>
-      <ExpenseChart data={updatedExpenseData} />
+      <ExpenseChart data={expenses} totalYearlyExpense={totalYearlyExpense} />
     </div>
   );
 };
