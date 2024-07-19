@@ -3,11 +3,6 @@
   overflow: hidden,
 }
 
-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-}
 
 main {
   display: flex;
@@ -19,8 +14,11 @@ main {
 #txt1 {
   margin: 0;
   background-color: black;
+  width: 100%;
   color: white;
   text-align: center;
+  padding: 20px;
+  display: none;
 }
 
 #formDesp {
