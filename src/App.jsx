@@ -21,7 +21,7 @@ const App = () => {
   const totalYearlyExpense = expenses.reduce((total, entry) => total + entry.amount, 0);
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ marginRight: '20px' }}>
         <h1>Formulário de Despesas</h1>
         <form>
