@@ -5,7 +5,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'r
 const ExpenseChart = ({ data, totalYearlyExpense }) => {
 
   return (
-    <div>
+    <div style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', margin: 'auto', marginTop: '30px' }}>
       <h2>Gráfico Mensal</h2>
       <LineChart width={600} height={300} data={data}>
         <Line type="monotone" dataKey="amount" stroke="#8884d8" />

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden,
 }
 
 header {
@@ -15,3 +16,18 @@ main {
   margin-top: 20px;
 }
 
+#txt1 {
+  margin: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#formDesp {
+  padding-left: 20px;
+  margin: 100px;
+}
+
+.labelTxt {
+  padding-right: 10px;
+}

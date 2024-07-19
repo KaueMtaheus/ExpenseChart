@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ExpenseChart from './components/ExpenseChart';
 import initialExpenseData from './data/expenseData';
+import './App.css';
 
 const App = () => {
   const [salary, setSalary] = useState('');
@@ -21,12 +22,12 @@ const App = () => {
   const totalYearlyExpense = expenses.reduce((total, entry) => total + entry.amount, 0);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <div style={{ marginRight: '20px' }}>
-        <h1>Formulário de Despesas</h1>
-        <form>
+    <div style={{ display: 'flex' }}>
+      <div style={{ border: '1px solid black', width: '500px', height: '100vh'}}>
+      <h1 id='txt1'>Formulário de Despesas</h1>
+        <form id='formDesp'>
           <div>
-            <label>Salário:</label>
+            <label className='labelTxt'>Salário:</label>
             <input
               type="number"
               value={salary}
@@ -34,7 +35,7 @@ const App = () => {
             />
           </div>
           <div>
-          <label>Mês:</label>
+          <label className='labelTxt' >Mês:</label>
             <select value={month} onChange={(e) => setMonth(e.target.value)}>
               <option value="">Selecione o mês</option>
               {initialExpenseData.map(exp => (
@@ -43,7 +44,7 @@ const App = () => {
             </select>
           </div>
           <div>
-            <label>Gasto:</label>
+            <label className='labelTxt' >Gasto:</label>
             <input
               type="number"
               value={amount}
