@@ -13,12 +13,11 @@ main {
 
 #txt1 {
   margin: 0;
-  background-color: black;
-  width: 100%;
-  color: white;
+  margin-top: 70px;
+  width: 100%;  
+  color: black;
   text-align: center;
   padding: 20px;
-  display: none;
 }
 
 #formDesp {
